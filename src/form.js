@@ -31,10 +31,11 @@ function form({ todo, settodo, settodolist, todolist }) {
         placeholder="Task"
       />
       <br />
-
-      <button onClick={buttonHandler} type="submit">
-        submit
-      </button>
+        <div className="buttonContainer"> 
+        <button onClick={buttonHandler} type="submit">
+            submit
+        </button>
+      </div>
     </div>
   );
 }
