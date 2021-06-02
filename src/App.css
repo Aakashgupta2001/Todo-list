@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+/*  scrollbar Styling */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*  Todo List Styling */
+
+.todoList {
+  background-color: wheat;
+  height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.profile-container {
+  margin: 20px;
+  max-width: 500px;
+  background-color: lightblue;
+  min-height: 50px;
+  border-radius: 10px;
+  padding: 10px 5px 15px 5px;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 20px 90px;
+}
+
+.profile-container .priorityCounter {
+  align-self: center;
+}
+.profile-container p {
+  margin-left: 10px;
+  align-self: center;
+}
+
+.profile-container button {
+  padding: 5px 20px;
+  border: 1px solid rgb(72, 72, 73);
+  border-radius: 10px;
+  height: fit-content;
+  align-self: center;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.main {
+  background-color: antiquewhite;
+  min-width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*  Form Styling */
+.Form {
 }
