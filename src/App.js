@@ -7,6 +7,27 @@ function App() {
   const [todoInput, settodoInput] = useState("");
   const [todoList, settodolist] = useState([]);
 
+  let cookies_data = JSON.stringify(localStorage.getItem("storedTodo"));
+  if (cookies_data !== "") {
+    let todoData = cookies_data.split(",");
+    console.log(todoData);
+  }
+
+  if (typeof Storage !== "undefined") {
+    // Code for localStorage/sessionStorage.
+    console.log("local storage supported");
+    localStorage.setItem(
+      "storedTodo",
+      todoList.map((todo) => {
+        return todo.text;
+      })
+    );
+
+    console.log(cookies_data);
+  } else {
+    console.log("local storage not supported");
+  }
+
   return (
     <div className="main">
       <Form

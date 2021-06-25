@@ -3,7 +3,6 @@ import React from "react";
 function form({ todo, settodo, settodolist, todolist }) {
   const inputnameHandler = (e) => {
     settodo(e.target.value);
-    console.log(e.target.value);
   };
 
   const buttonHandler = (e) => {
@@ -14,8 +13,6 @@ function form({ todo, settodo, settodolist, todolist }) {
         { text: todo, completed: false, id: Math.random() * 1000 },
       ]);
     }
-
-    console.log(todolist);
 
     settodo("");
   };
@@ -31,9 +28,9 @@ function form({ todo, settodo, settodolist, todolist }) {
         placeholder="Task"
       />
       <br />
-        <div className="buttonContainer"> 
+      <div className="buttonContainer">
         <button onClick={buttonHandler} type="submit">
-            submit
+          submit
         </button>
       </div>
     </div>

@@ -9,7 +9,6 @@ function Profile({ todo ,settodolist , todolist}) {
     let newtodo =  todolist.filter(etodo => {
       return etodo.text !== todo.text
     })
-    console.log(newtodo)
     settodolist(newtodo)
   }
 
