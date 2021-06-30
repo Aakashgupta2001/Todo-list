@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Todo from "./todo";
 import Form from "./form";
@@ -7,26 +7,24 @@ function App() {
   const [todoInput, settodoInput] = useState("");
   const [todoList, settodolist] = useState([]);
 
-  let cookies_data = JSON.stringify(localStorage.getItem("storedTodo"));
-  if (cookies_data !== "") {
-    let todoData = cookies_data.split(",");
-    console.log(todoData);
-  }
+  ///local storage
 
-  if (typeof Storage !== "undefined") {
-    // Code for localStorage/sessionStorage.
-    console.log("local storage supported");
-    localStorage.setItem(
-      "storedTodo",
+  useEffect(() => {
+    const savedTodo = localStorage.getItem("todoSave") || [];
+    console.log("savedTodo=" + savedTodo);
+  }, []);
+  console.log(
+    "todoList=" +
       todoList.map((todo) => {
         return todo.text;
       })
-    );
+  );
 
-    console.log(cookies_data);
-  } else {
-    console.log("local storage not supported");
-  }
+  useEffect(() => {
+    localStorage.setItem("todoSave", todoList);
+  });
+
+  ///local storage end
 
   return (
     <div className="main">
