@@ -10,9 +10,12 @@ function App() {
   ///local storage
 
   useEffect(() => {
-    const savedTodo = localStorage.getItem("todoSave") || [];
-    console.log("savedTodo=" + savedTodo);
+    let savedTodo = JSON.parse(localStorage.getItem("todoSave")) || [];
+    console.log("savedTodo=" + savedTodo + "with type " + typeof savedTodo);
+    console.log(savedTodo.map((todo) => todo));
+    settodolist(savedTodo.map((todo) => todo));
   }, []);
+
   console.log(
     "todoList=" +
       todoList.map((todo) => {
@@ -21,8 +24,9 @@ function App() {
   );
 
   useEffect(() => {
-    localStorage.setItem("todoSave", todoList);
-  });
+    localStorage.setItem("todoSave", JSON.stringify(todoList));
+    console.log("saved in local storage");
+  }, [todoList]);
 
   ///local storage end
 
