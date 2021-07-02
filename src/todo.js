@@ -1,9 +1,27 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 
 function Profile({ todo ,settodolist , todolist}) {
+
   const [count, setCount] = useState(0);
+
+  useEffect(()=>{
+    setCount(todo.priority)
+
+  }, [])
+
+  //saving priority in local storage
+  useEffect(() => {
+    localStorage.setItem("todoSave", JSON.stringify(todolist));
+    console.log("saved in local storage");
+  }, [count]);
+
+
+  
   const increment = () => {
     setCount(count + 1);
+    todo.priority++;
+    console.log(todo)
+
   };
   const remove = () =>{
     let newtodo =  todolist.filter(etodo => {

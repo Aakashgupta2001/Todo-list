@@ -16,13 +16,6 @@ function App() {
     settodolist(savedTodo.map((todo) => todo));
   }, []);
 
-  console.log(
-    "todoList=" +
-      todoList.map((todo) => {
-        return todo.text;
-      })
-  );
-
   useEffect(() => {
     localStorage.setItem("todoSave", JSON.stringify(todoList));
     console.log("saved in local storage");
@@ -42,6 +35,7 @@ function App() {
         <h1 className="todoHeading">Todo List</h1>
         {todoList.map((currentTodo) => (
           <Todo
+            key={currentTodo.id}
             todo={currentTodo}
             todolist={todoList}
             settodolist={settodolist}

@@ -10,7 +10,7 @@ function form({ todo, settodo, settodolist, todolist }) {
     } else {
       settodolist([
         ...todolist,
-        { text: todo, completed: false, id: Math.random() * 1000 },
+        { text: todo, completed: false, id: Math.random() * 1000, priority: 0 },
       ]);
     }
 
