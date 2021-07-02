@@ -4,10 +4,7 @@ function Profile({ todo ,settodolist , todolist}) {
 
   const [count, setCount] = useState(0);
 
-  useEffect(()=>{
-    setCount(todo.priority)
 
-  }, [])
 
   //saving priority in local storage
   useEffect(() => {
@@ -33,7 +30,7 @@ function Profile({ todo ,settodolist , todolist}) {
   return (
     <div className="profile-container">
       <p>{todo.text}</p>
-      <p className="priorityCounter">{count}</p>
+      <p className="priorityCounter">{todo.priority}</p>
       <button onClick={increment}>Priority</button>
       <button onClick={remove}>Remove</button>
     </div>
